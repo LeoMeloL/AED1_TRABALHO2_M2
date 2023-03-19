@@ -25,6 +25,7 @@ void CriaLista( ListNode_t **cabeca, int val ) {
             lastNode = lastNode->next;
         }
         lastNode->next = newNode;
+        newNode->next = NULL;
     }
 }
 
@@ -44,6 +45,7 @@ bool IsPalindrome( ListNode_t* cabeca ) {
         atual = atual->next;
     }
 
+
     int Metade = count / 2;
     atual = cabeca;
     ListNode_t* prev = NULL;
@@ -56,16 +58,19 @@ bool IsPalindrome( ListNode_t* cabeca ) {
 
     if ( count % 2 == 1 ) {
         atual = atual->next;
-        atual = atual->next;
     }
 
     for ( int i = 0; i < Metade; i++ ) {
         if ( prev->val != atual->val ) {
+            free( prev );
             return false;
         }
         prev = prev->next;
         atual = atual->next;
     }
+
+    free( prev );
+    free( atual );
 
     return true;
 }
@@ -82,6 +87,7 @@ void LimpaLista( ListNode_t **cabeca ) {
     }
 
     *cabeca = NULL;
+    free(prox);
 }
 
 
@@ -89,6 +95,7 @@ int main() {
 
     ListNode_t *cabeca = NULL;
     CriaLista( &cabeca, 1 );
+    CriaLista( &cabeca, 2 );
     CriaLista( &cabeca, 2 );
     CriaLista( &cabeca, 2 );
     CriaLista( &cabeca, 1 );
@@ -118,6 +125,6 @@ int main() {
         printf("A lista não é um palíndromo.\n");
     }
 
-    free( cabeca );
+
     return 0;
 }
