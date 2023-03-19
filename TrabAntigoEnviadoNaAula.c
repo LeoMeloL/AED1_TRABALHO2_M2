@@ -1,3 +1,6 @@
+//Esse é o trabalho enviado no horario da aula, e que está no e-aula mas resolvi botar junto para comparacao.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -89,8 +92,6 @@ int main() {
 
     ListNode *cabeca = NULL;
     CriaLista(&cabeca, 1);
-    CriaLista(&cabeca, 2);
-    CriaLista(&cabeca, 2);
     CriaLista(&cabeca, 2);
     CriaLista(&cabeca, 2);
     CriaLista(&cabeca, 1);
